@@ -6,6 +6,8 @@ import Uikit from "./Uikit"
 import Navbar from "./Navbar.js";
 import Home from "./Home.js"
 import About from "./About.js"
+import Products from "./Products.js"
+import Cart from "./Cart.js"
 
 export default function App(){
   return (<>
@@ -18,6 +20,12 @@ export default function App(){
   </Route>
   <Route exact path="/about">
   <About />
+  </Route>
+  <Route exact path="/products">
+  <Products />
+  </Route>
+  <Route exact path="/cart">
+  <Cart />
   </Route>
 
   </Switch>
