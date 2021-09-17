@@ -1,0 +1,89 @@
+
+:root {
+    --white: #fff;
+    --black: #000;
+  
+    /* Primary colors*/
+    --primary-1: #2b8379;
+    --primary-2: #19a596;
+    --primary-3: #7fd1c7;
+    --primary-4: #7fd1c7;
+    --primary-5: #d0f3ef;
+  
+    /* Neutral colors */
+    --neutral-1: #2c2c2c;
+    --neutral-2: #434343;
+    --neutral-3: #94868b;
+    --neutral-4: #d9cfd3;
+    --neutral-5: #f2ecee;
+  
+    /* Accent-blue colors */
+    --accent-1: #970e3d;
+    --accent-2: #c43464;
+    --accent-3: #de7699;
+    --accent-4: #e6c3ce;
+    --accent-5: #fff2f7;
+  }
+/* NAVBAR */
+.navbar {
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+      0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:0.5px dashed lightgrey;
+  }
+  
+  .nav-brand {
+    font-size: 40px;
+    font-weight: 450;
+    text-decoration: none;
+    padding-left: 20px;
+    color: initial;
+    border:0.5px dashed lightgrey;
+  }
+  .nav-brand:hover {
+    text-decoration: none;
+  }
+  .nav-brand:active {
+    color: var(--primary-1);
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    overflow: hidden;
+    padding-right: 20px;
+    text-align: center;
+    border:0.5px dashed lightgrey;
+  }
+  
+  .navbar li {
+    display: inline-block;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    font-weight: normal;
+    color: var(--primary-1);
+    display: inline-block;
+    text-align: center;
+    padding: 13px 20px;
+    min-width: 75px;
+  }
+  
+  .nav-item:hover a {
+    text-decoration: none;
+    color: var(--primary-2);
+  }
+  
+  .nav-item a.active {
+    font-weight: bold;
+  }
+  
+  .nav-cart {
+    width: 65px;
+    text-align: center;
+    padding: 10px 25px;
+  }
