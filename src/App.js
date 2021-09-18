@@ -8,6 +8,7 @@ import Home from "./Home.js"
 import About from "./About.js"
 import Products from "./Products.js"
 import Cart from "./Cart.js"
+import ProductDetails from "./ProductDetails.js"
 
 export default function App(){
   return (<>
@@ -27,6 +28,9 @@ export default function App(){
   <Route exact path="/cart">
   <Cart />
   </Route>
+  <Route path="/products/:id">
+            <ProductDetails />
+          </Route>
 
   </Switch>
   </>)
