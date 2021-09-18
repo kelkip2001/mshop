@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 import {Route,Switch} from "react-router-dom"
 import Button from "./Button.js"
 import Input from "./Input.js"
@@ -11,8 +11,15 @@ import Cart from "./Cart.js"
 import ProductDetails from "./ProductDetails.js"
 
 export default function App(){
+  const [cart,setCart]=useState([1,2]);
+  const handleProductAdd=()=>{
+    console.log("Adding product ")
+  }
+  const handleProductDelete=()=>{
+    console.log("Deleting product ")
+  }
   return (<>
-  <Navbar/>
+  <Navbar cart={cart}/>
 
   <Switch>
   
@@ -23,10 +30,14 @@ export default function App(){
   <About />
   </Route>
   <Route exact path="/products">
-  <Products />
+  <Products 
+  cart={cart} 
+  onProductAdd={handleProductAdd}
+  onProductDelete={handleProductDelete}
+  />
   </Route>
   <Route exact path="/cart">
-  <Cart />
+  <Cart cart={cart}/>
   </Route>
   <Route path="/products/:id">
             <ProductDetails />

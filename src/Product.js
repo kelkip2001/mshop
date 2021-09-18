@@ -4,8 +4,8 @@ import Button from "./Button.js";
 import {Link} from "react-router-dom";
 
 export default function Product(props){
-    console.log(props.details)
-const {name,description,image,id,price,price_id} = props.details
+  
+const {name,description,image,id,price,price_id,cart} = props.details
 return <div class="product">
   <div class="product-image-container">
     <Link to={`/products/${id}`}>

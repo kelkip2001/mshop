@@ -4,7 +4,7 @@ import useFetch from "./useFetch.js";
   import Loader from "./Loader.js";
   import Product from "./Product.js"
 
-export default function Products(){
+export default function Products(props){
     const {get,loading} = useFetch("https://react-tutorial-demo.firebaseio.com/")
     const [products,setProducts]=useState([])
 
@@ -26,7 +26,11 @@ console.log(products)
         {loading && <Loader />}
      {products.map(product=>{
        return (<>
-       <Product details={product}/>
+       <Product 
+            cart={props.cart}
+            key={product.id}
+            details={product}
+            />
        </>)
      })}
      
