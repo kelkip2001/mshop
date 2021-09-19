@@ -4,7 +4,11 @@ import Button from "./Button.js";
 import {Link} from "react-router-dom";
 
 export default function Product(props){
-// we have two arrays of objects here (details and cart).  
+
+// we have two arrays of objects here (details and cart). Received as props.
+// 1. Details={product} from the API fetch request
+// 2.cart= is an array of objects
+// 3.product id
   const {details,cart}=props;
   
 const {name,description,image,id,price,cart} = props.details

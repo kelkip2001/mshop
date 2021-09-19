@@ -12,6 +12,8 @@ export default function Products(props){
 get("supermarket.json").then(data=>{
 
     setProducts(data)
+    //data is received from the API and set to Products varible.
+    //the products varible is an array of objects and each object represent product.
 console.log(products)
   }).catch(e=>{
     console.log(e)
