@@ -11,12 +11,33 @@ import Cart from "./Cart.js"
 import ProductDetails from "./ProductDetails.js"
 
 export default function App(){
-  const [cart,setCart]=useState([1,2]);
-  const handleProductAdd=()=>{
-    console.log("Adding product ")
+
+
+  const [cart,setCart]=useState([]);
+
+  const handleProductAdd=(newProduct)=>{
+
+   const existingproduct = cart.find(product=>product.id===newProduct.id)
+
+    if(existingproduct){
+      const updatedcart = cart.map(product=>{
+        if(product.id===newProduct.id){
+          return {
+            ...product,
+            quantity:product.quantity+1
+          }
+        }
+        return product;
+      });
+      setCart(updatedcart);
+
+    }else{
+setCart([...cart,{...newProduct,quantity:1}])
+    }
   }
-  const handleProductDelete=()=>{
-    console.log("Deleting product ")
+  const handleProductDelete=(id)=>{
+   const updatedcart= cart.filter(product=>product.id!==id)
+   setCart(updatedcart)
   }
   return (<>
   <Navbar cart={cart}/>

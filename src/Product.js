@@ -4,8 +4,12 @@ import Button from "./Button.js";
 import {Link} from "react-router-dom";
 
 export default function Product(props){
+// we have two arrays of objects here (details and cart).  
+  const {details,cart}=props;
   
-const {name,description,image,id,price,price_id,cart} = props.details
+const {name,description,image,id,price,cart} = props.details
+console.log(cart)
+
 return <div class="product">
   <div class="product-image-container">
     <Link to={`/products/${id}`}>
