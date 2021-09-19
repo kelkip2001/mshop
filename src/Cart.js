@@ -27,8 +27,8 @@ export default function Cart({ cart }) {
         .redirectToCheckout({
           lineItems: lineItems,
           mode: "payment",
-          successUrl: "https://mshop01.netlify.app",
-          cancelUrl: "https://mshop01.netlify.app",
+          successUrl: "https://mshop01.netlify.app/products",
+          cancelUrl: "https://mshop01.netlify.app/products",
           customerEmail: email,
         })
         .then((response) => {
