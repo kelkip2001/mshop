@@ -1,37 +1,53 @@
-//
-import React from "react"
+import React from "react";
+import { Link } from "react-router-dom";
 import Button from "./Button.js";
-import {Link} from "react-router-dom";
 
-export default function Product(props){
+export default function Product(props) {
+  const { details } = props;
 
-// we have two arrays of objects here (details and cart). Received as props.
-// 1. Details={product} from the API fetch request
-// 2.cart= is an array of objects
-// 3.product id
-  const {details,cart}=props;
-  
-const {name,description,image,id,price,cart} = props.details
-console.log(cart)
+  const productFromCart = props.cart.find(
+    (product) => product.id === details.id
+  );
+  const quantity = productFromCart ? productFromCart.quantity : 0;
 
-return <div class="product">
-  <div class="product-image-container">
-    <Link to={`/products/${id}`}>
-      <img src={image} width="100" height="100" className="product-image" alt={name} />
-      </Link>
-    <div class="product-quantity-container">
-      <div class="product-quantity">0</div>
+  return (
+    <div className="product">
+      <div className="product-image-container">
+        <Link to={`/products/${details.id}`}>
+          <img
+            src={details.image}
+            width="100"
+            height="100"
+            className="product-image"
+            alt={details.name}
+          />
+        </Link>
+        {quantity > 0 && (
+          <div className="product-quantity-container">
+            <div className="product-quantity">{quantity}</div>
+          </div>
+        )}
+      </div>
+      <div className="product-info">
+        <h3>{details.name}</h3>
+        <p>{details.description}</p>
+      </div>
+      <div className="product-checkout">
+        <div>
+          {quantity > 0 && (
+            <Button
+              outline
+              onClick={() => props.onProductDelete(details.id)}
+              className="product-delete"
+            >
+              x
+            </Button>
+          )}
+        </div>
+        <Button outline onClick={() => props.onProductAdd(details)}>
+          ${details.price}
+        </Button>
+      </div>
     </div>
-  </div>
-  <div class="product-info">
-    <h3>{name}</h3>
-    <p>{description}</p>
-  </div>
-  <div class="product-checkout">
-    <div>
-        <Button outline className="product-delete">delete</Button>
-    </div>
-    <Button outline className ="btn btn-outline">{price}</Button>
-  </div>
-</div>
+  );
 }

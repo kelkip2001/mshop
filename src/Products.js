@@ -5,8 +5,12 @@ import useFetch from "./useFetch.js";
   import Product from "./Product.js"
 
 export default function Products(props){
+
+  const {cart,onProductAdd,onProductDelete}=props
+
+  const [products,setProducts]=useState([])
     const {get,loading} = useFetch("https://react-tutorial-demo.firebaseio.com/")
-    const [products,setProducts]=useState([])
+    
 
     useEffect(()=>{
 get("supermarket.json").then(data=>{
@@ -32,7 +36,13 @@ console.log(products)
             cart={props.cart}
             key={product.id}
             details={product}
+            onProductAdd={onProductAdd}
+            onProductDelete={onProductDelete}
             />
+            {/* The Product component receives three props from Products.
+            1. product (an array)
+            2. cart (an array of objects)
+            3. key - product id */}
        </>)
      })}
      
