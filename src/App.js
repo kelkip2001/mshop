@@ -11,7 +11,7 @@ import Cart from "./Cart.js"
 import ProductDetails from "./ProductDetails.js"
 
 export default function App(){
-
+// test
 
   const [cart,setCart]=useState([]);
 
@@ -40,6 +40,7 @@ setCart([...cart,{...newProduct,quantity:1}])
    setCart(updatedcart)
   }
   return (<>
+// 		  test
   <Navbar cart={cart}/>
 
   <Switch>
