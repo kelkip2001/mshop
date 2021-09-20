@@ -34,7 +34,7 @@ console.log(products)
      {products.map(product=>{
        return (<>
        <Product 
-            cart={props.cart}
+            cart={cart}
             key={product.id}
             details={product}
             onProductAdd={onProductAdd}

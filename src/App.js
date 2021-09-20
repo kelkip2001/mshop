@@ -37,7 +37,7 @@ setCart([...cart,{...newProduct,quantity:1}])
    setCart(updatedcart)
   }
   return (<>
-// 		  test
+
   <Navbar cart={cart}/>
 
   <Switch>
